@@ -16,5 +16,9 @@ public class ZoneDao {
         String hql = "SELECT z FROM Zones z";
         return this.em.createQuery(hql).getResultList();
     }
+
+    public Zones saveZone(Zones zone) {
+        return this.em.merge(zone);
+    }
     
 }

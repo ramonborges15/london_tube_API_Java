@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
+import javax.transaction.Transactional;
 
 @Stateless
 public class ZoneControler {
@@ -28,5 +29,10 @@ public class ZoneControler {
         
         return builder.build().toString();
         
+    }
+    
+    @Transactional
+    public Zones createZone(Zones zone) {
+        return this.zoneDAO.saveZone(zone);
     }
 }
