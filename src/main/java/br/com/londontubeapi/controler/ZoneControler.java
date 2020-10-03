@@ -35,4 +35,13 @@ public class ZoneControler {
     public Zones createZone(Zones zone) {
         return this.zoneDAO.saveZone(zone);
     }
+
+    public void deleteZoneById(long id) {
+        this.zoneDAO.deleteZoneById(id);
+    }
+
+    public void updateZoneById(long id, Zones zone) {
+        zone.setId(Integer.valueOf(String.valueOf(id)));
+        this.zoneDAO.updateZone(zone);
+    }
 }

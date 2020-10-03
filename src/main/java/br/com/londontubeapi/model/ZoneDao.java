@@ -20,5 +20,13 @@ public class ZoneDao {
     public Zones saveZone(Zones zone) {
         return this.em.merge(zone);
     }
+
+    public void deleteZoneById(long id) {
+        this.em.remove(this.em.find(Zones.class, Integer.valueOf(String.valueOf(id))));
+    }
+
+    public void updateZone(Zones zone) {
+        this.em.merge(zone);
+    }
     
 }
